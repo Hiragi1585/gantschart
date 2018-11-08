@@ -1,37 +1,24 @@
-export class Job {
-    id: number;
-    step: number;
-    name: string;
-    stroke: number;
-    vGo: number;
-    vBack: number;
-    tGo: number;
-    tBack: number;
-    totalTime: number;
-    gtStart: number;
-    gtEnd: number;
-
-    constructor(id: number, step: number, name: string, stroke: number, vGo: number, vBack: number) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+class Job {
+    constructor(id, step, name, stroke, vGo, vBack) {
         this.id = id;
         this.step = step;
         this.name = name;
         this.stroke = stroke;
         this.vGo = vGo;
         this.vBack = vBack;
-        this.tGo = stroke/vGo;
-        this.tBack = stroke/vBack;
+        this.tGo = stroke / vGo;
+        this.tBack = stroke / vBack;
         this.totalTime = this.tGo + this.tBack;
     }
-
-    changeGlobalTime(differ: number) {
-        this.gtEnd+=differ;
-        this.gtStart+=differ;
+    changeGlobalTime(differ) {
+        this.gtEnd += differ;
+        this.gtStart += differ;
     }
-
-    set gStart(newGStart: number) {
+    set gStart(newGStart) {
         this.gStart = newGStart;
     }
-
     dbgShowInfo() {
         console.log(`id:${this.id}`);
         console.log(`step:${this.step}`);
@@ -41,3 +28,5 @@ export class Job {
         console.log(`gEnd:${this.gtEnd}`);
     }
 }
+exports.Job = Job;
+//# sourceMappingURL=job.js.map
